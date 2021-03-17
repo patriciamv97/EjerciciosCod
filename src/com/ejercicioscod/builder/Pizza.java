@@ -1,9 +1,9 @@
 package com.ejercicioscod.builder;
 
 public class Pizza {
-    private String masa;
+    private int masa;
+    private  int tamaño;
     private boolean relleno;
-    private int tipo;
     private boolean salsa;
     private boolean cebolla;
     private boolean sinGluten;
@@ -11,16 +11,96 @@ public class Pizza {
     private boolean piña;
     private boolean champiñones;
     private boolean jamon;
+    private int recojida;
+    //Tipo masa
+    public static final int FINA = 0;
+    public static final int PAN = 1;
+    //Tamaño
+    public static final int PEQUEÑA = 0;
+    public static final int MEDIANA = 2;
+    public static final int FAMILIAR = 3;
+    // Recojida
+    public static final int TIENDA = 0;
+    public static final int PARALLEVAR = 1;
 
-    public Pizza() {
+
+    public Pizza(){
+        this.cebolla = true;
+        this.recojida = TIENDA;
+        this.relleno = false;
+        this.sinGluten = false;
+        this.tamaño = MEDIANA;
+        this.masa = FINA;
     }
 
-    public String getMasa() {
+    @Override
+    public String toString() {
+        return "Pizza{" +
+                "masa=" + masa +
+                ", tamaño=" + tamaño +
+                ", relleno=" + relleno +
+                ", salsa=" + salsa +
+                ", cebolla=" + cebolla +
+                ", sinGluten=" + sinGluten +
+                ", extraQueso=" + extraQueso +
+                ", piña=" + piña +
+                ", champiñones=" + champiñones +
+                ", jamon=" + jamon +
+                ", recojida=" + recojida +
+                '}';
+    }
+
+    /**
+     * @param masa
+     * @param tamaño
+     * @param relleno
+     * @param salsa
+     * @param cebolla
+     * @param sinGluten
+     * @param extraQueso
+     * @param piña
+     * @param champiñones
+     * @param jamon
+     * @param recojida
+     */
+
+
+    public Pizza(int masa, int tamaño, boolean relleno, boolean salsa, boolean cebolla, boolean sinGluten, boolean extraQueso, boolean piña, boolean champiñones, boolean jamon, int recojida) {
+        this.masa = masa;
+        this.tamaño = tamaño;
+        this.relleno = relleno;
+        this.salsa = salsa;
+        this.cebolla = cebolla;
+        this.sinGluten = sinGluten;
+        this.extraQueso = extraQueso;
+        this.piña = piña;
+        this.champiñones = champiñones;
+        this.jamon = jamon;
+        this.recojida = recojida;
+    }
+
+    public int getMasa() {
         return masa;
     }
 
-    public void setMasa(String masa) {
+    public void setMasa(int masa) {
         this.masa = masa;
+    }
+
+    public int getTamaño() {
+        return tamaño;
+    }
+
+    public void setTamaño(int tamaño) {
+        this.tamaño = tamaño;
+    }
+
+    public int getRecojida() {
+        return recojida;
+    }
+
+    public void setRecojida(int recojida) {
+        this.recojida = recojida;
     }
 
     public boolean isRelleno() {
@@ -29,14 +109,6 @@ public class Pizza {
 
     public void setRelleno(boolean relleno) {
         this.relleno = relleno;
-    }
-
-    public int getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
     }
 
     public boolean isSalsa() {
@@ -95,24 +167,5 @@ public class Pizza {
         this.jamon = jamon;
     }
 
-    public Pizza(String masa, boolean relleno, int tipo, boolean salsa, boolean cebolla, boolean sinGluten, boolean extraQueso, boolean piña, boolean champiñones, boolean jamon) {
-        this.masa = masa;
-        this.relleno = relleno;
-        this.tipo = tipo;
-        this.salsa = salsa;
-        this.cebolla = cebolla;
-        this.sinGluten = sinGluten;
-        this.extraQueso = extraQueso;
-        this.piña = piña;
-        this.champiñones = champiñones;
-        this.jamon = jamon;
-    }
 
-    @Override
-    public String toString() {
-        return
-                "masa : " + masa + ", relleno= " + relleno + ", tipo= " + tipo +
-                ", salsa= " + salsa + ", cebolla= " + cebolla + ", sinGluten= " + sinGluten + ", extraQueso= " + extraQueso +
-                ", piña= " + piña + ", champiñones= " + champiñones + ", jamon= " + jamon ;
-    }
 }
